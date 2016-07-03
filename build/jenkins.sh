@@ -12,7 +12,11 @@ if [ $OUT -eq 0 ]; then
     docker kill $IMAGE 2>/dev/null || true
     docker rm -f $IMAGE 2>/dev/null || true
     docker run \
+<<<<<<< Updated upstream
         --detached \
+=======
+        --detach \
+>>>>>>> Stashed changes
         --restart=on-failure:5 \
         --name $IMAGE \
         --env HTTP_PORT=$HTTP_PORT \
