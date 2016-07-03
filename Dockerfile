@@ -1,4 +1,4 @@
-FROM octohost/nodejs
+FROM mhart/alpine-node:4.4.5
 
 ENV PORT 3000
 
