@@ -14,7 +14,8 @@ if [ $OUT -eq 0 ]; then
         --name $IMAGE \
         --env HTTP_PORT=$HTTP_PORT \
         --publish $HTTP_PORT:$HTTP_PORT \
-        $IMAGE
+        $IMAGE \
+          slackin "$SLACK_TEAM" "$SLACK_TOKEN"
 else
     exit $OUT
 fi
