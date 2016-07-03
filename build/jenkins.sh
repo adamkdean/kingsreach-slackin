@@ -1,9 +1,7 @@
 #!/bin/bash
 
-BRANCH=$(echo $GIT_BRANCH | cut -d "/" -f 2)
-IMAGE="$JOB_NAME-$BRANCH"
-
-docker build -t $IMAGE .
+# dear future self, ensure that you have built this
+# and pushed it to quay first.
 
 OUT=$?
 if [ $OUT -eq 0 ]; then
@@ -14,7 +12,7 @@ if [ $OUT -eq 0 ]; then
         --name $IMAGE \
         --env HTTP_PORT=$HTTP_PORT \
         --publish $HTTP_PORT:$HTTP_PORT \
-        $IMAGE \
+        quay.io/kingsreach/slackin \
           ./bin/slackin --port $HTTP_PORT $SLACK_TEAM $SLACK_TOKEN
 else
     exit $OUT
