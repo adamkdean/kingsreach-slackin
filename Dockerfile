@@ -1,5 +1,13 @@
-FROM node:4.2
+FROM octohost/nodejs
 
-# update to npm 3.x
-RUN npm install -g npm
-RUN npm install -g slackin
+ENV PORT 3000
+
+ADD . /srv/www
+
+WORKDIR /srv/www
+
+RUN npm install --unsafe-perm
+
+EXPOSE 3000
+
+CMD ./bin/slackin --coc "$SLACK_COC" --channels "$SLACK_CHANNELS" --port $PORT $SLACK_SUBDOMAIN $SLACK_API_TOKEN
