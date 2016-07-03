@@ -2,6 +2,7 @@
 
 # dear future self, ensure that you have built this
 # and pushed it to quay first.
+docker pull quay.io/kingsreach/slackin
 
 OUT=$?
 if [ $OUT -eq 0 ]; then
